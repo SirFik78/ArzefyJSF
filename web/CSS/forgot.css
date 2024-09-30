@@ -1,0 +1,56 @@
+body {
+    background-color: #232946;
+    background-image: url('../IMG/Sprinkle 02.svg'); /* Use single quotes and escape spaces */
+    width: 100%;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.lupa {
+    margin-top: 20px;
+    background-color: #1c2533;
+    width: 50%;
+    height: auto;
+    padding: 20px;
+    border-radius: 12px;
+    color: white;
+    margin-top: 230px; /* Adjust as necessary */
+    display: block;
+    text-align: center;
+}
+
+
+
+.lupa-button {
+    background-color: transparent;
+    border: 2px solid;
+    border-radius: 15px;
+    color: #207cb4;
+    width: 120px;
+    height: 40px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+.lupa-button:hover {
+    background-color: #207cb4;
+    color: #fff;
+}
+
+.lupa-label {
+    float: left;
+    font-weight: bold;
+    margin-top: 14px;
+}
+
+.lupa-input{
+    width: 95%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: black;
+}

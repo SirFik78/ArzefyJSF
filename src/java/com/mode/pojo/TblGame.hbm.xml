@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 24, 2024 12:45:37 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mode.pojo.TblGame" table="tbl_game" catalog="arzefy" optimistic-lock="version">
+        <id name="idGame" type="int">
+            <column name="id_game" />
+            <generator class="assigned" />
+        </id>
+        <property name="namaGame" type="string">
+            <column name="nama_game" length="55" not-null="true" />
+        </property>
+        <property name="image" type="string">
+            <column name="image" not-null="true" />
+        </property>
+        <set name="tblItems" table="tbl_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_game" />
+            </key>
+            <one-to-many class="com.mode.pojo.TblItem" />
+        </set>
+    </class>
+</hibernate-mapping>

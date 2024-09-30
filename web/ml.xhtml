@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+    <h:head>
+        <title>Honkai Star Rail</title>
+        <h:outputStylesheet name="css/Game.css" />   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="JavaScript/noserver.js"></script>
+    </h:head>
+    <h:body>
+        <ui:include src="header.xhtml" />
+
+        <div class="container">
+            <div class="card">
+                <div class="image-container">
+                    <img src="IMG/mobile-legends.webp" alt="Mobile Legends" />
+                </div>
+            <div class="content">
+                <h1>Mobile Legends</h1>
+                <p>Untuk mengetahui User ID Anda, Silakan Klik menu profile dibagian kiri atas pada menu utama game. Dan user ID akan terlihat dibagian bawah Nama Karakter Game Anda. Silakan masukkan User ID dan Zone ID Anda untuk menyelesaikan transaksi.Masukkan 12345678 di User ID dan 1234 di Zone ID (Contoh: 12345678(1596))</p>
+            </div>
+            </div>
+
+            <div class="right-content">
+                <h:form prependId="false">
+                    <div class="step">
+                        <h3><span>1</span> Masukkan ID</h3>
+                        <h:inputText styleClass="uidgame" id="riotIdInput" value="#{payBean.UID}" a:placeholder="Masukkan UID" required="true" >
+                            <f:ajax event="blur" render="hidden-UID popup-riot-id" />
+                        </h:inputText>
+                    </div>
+
+                    <div class="step">
+                        <h3><span>2</span> Pilih Kategori dan Item</h3>
+                        <div class="category">
+                            <div class="category-item active" data-category="diamonds">
+                                <p>Crystal</p>
+                                <h:graphicImage value="/IMG/gambar_diamond_ml-removebg-preview.png" width="60%" height="100px" />
+                            </div>
+                            <div class="category-item" data-category="starlight">
+                                <p>Battle Pass</p>
+                                <h:graphicImage value="/IMG/Starlight_ml_icon2-removebg-preview.png" width="60%" height="100px" />
+                            </div>
+                        </div>
+                        <h3 id="ini">Pilih Token</h3>
+                        <div class="item-grid" id="item-container">
+                            <ui:repeat value="#{itemBean.norrItems}" var="item">
+                                <div class="item" data-price="#{item.price}" 
+                                     onclick="updatePurchaseDetails('#{item.namaItem}', #{item.price})">
+                                    <img src="#{item.image}" alt="#{item.namaItem}" />
+                                    <div class="item-info">
+                                        <p>#{item.namaItem}</p>
+                                    </div>
+                                    <div class="item-price-box">
+                                        <p class="price">Rp. #{item.price}</p>
+                                    </div>
+                                </div>
+                            </ui:repeat>
+                        </div>
+                    
+                    <h3 id="pass">Pilih Starlight</h3>
+                    <div class="item-grid" id="item-container">
+                        <ui:repeat value="#{itemBean.extraItems}" var="item">
+                            <div class="battle" data-price="#{item.price}" 
+                                 onclick="updatePurchaseDetails('#{item.namaItem}', #{item.price})">
+                                <img src="#{item.image}" alt="#{item.namaItem}" />
+                                <div class="item-info">
+                                    <p>#{item.namaItem}</p>
+                                </div>
+                                <div class="item-price-box">
+                                    <p class="price">Rp. #{item.price}</p>
+                                </div>
+                            </div>
+                        </ui:repeat>
+                    </div>
+                   </div>
+                    <div class="step">
+                        <h3><span>3</span> Jumlah Yang Dipesan</h3>
+
+                        <h:inputText id="quantity" value="#{payBean.quantity}" required="true" />
+
+                    </div>
+
+                    <div class="payment-methods">
+                        <div class="step-header">
+                            <h3><span>4</span> Payment</h3>
+                        </div>
+                        <h2>E-Wallet dan QRIS</h2>
+                        <div class="payment-grid selected"  id="item-container">
+                            <div class="methode" onclick="selectPaymentMethod(this)">
+                                <img src="IMG/gopay.webp" alt="Gopay"/>
+                                <p id="totalPayment1">0</p>    
+                            </div>
+                            <div class="methode" onclick="selectPaymentMethod(this)">
+                                <img src="IMG/dana.webp" alt="Dana"/>
+                                <p id="totalPayment2">0</p>   
+                            </div>
+                            <div class="methode"  onclick="selectPaymentMethod(this)">
+                                <img src="IMG/qris.webp" alt="QRIS"/>
+                                <p id="totalPayment3">0</p>  
+                            </div>
+                            <div class="methode" onclick="selectPaymentMethod(this)">
+                                <img src="IMG/ovo.webp" alt="OVO"/>
+                                <p id="totalPayment4">0</p>  
+                            </div>
+                        </div>
+                    </div>
+
+                    <h:form>
+                        <h:commandButton id="popup-modal" styleClass="buynow" value="Beli Sekarang" onclick="openPopup()" />
+                    </h:form>
+                </h:form>
+
+            </div>
+        </div>
+        <h:form id="paymentForm" prependId="false">
+            <div id="popup-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closePopup()">&#215;</span>
+                    <h2>Detail Pembelian</h2>
+                    <h:inputHidden value="#{payBean.quantity}" id="hidden-quantity" />
+                    <h:inputHidden value="#{payBean.UID}" id="hidden-UID" />
+                    <p>ID: <h:outputText value="#{payBean.UID}" id="popup-riot-id" /></p>
+                    <p><h:outputText value="#{payBean.server}" id="popup-server" /></p>
+                    <h:inputHidden value="#{payBean.server}" id="hidden-server" />
+
+                    <p>Item: <span id="popup-item">-</span></p>
+                    <h:inputHidden value="#{payBean.item}" id="hidden-item" />
+                    <h:inputHidden value="#{payBean.game}" id="hidden-page" />
+                    <p>Total Pembayaran: <h:outputText value="#{payBean.price}" id="popup-amount" /></p>
+                    <h:inputHidden value="#{payBean.price}" id="hidden-price" />
+                    <p>Metode Pembayaran: <h:inputHidden value="#{payBean.methodPayment}" id="hidden-method-payment" /><span id="selected-payment-method">-</span></p>
+                    <div class="payment-method">
+                        <img id="popup-method-img" src="" alt="" width="100" />
+                        <input type="hidden" name="method_payment" id="hidden-method-payment" />
+                    </div>
+
+
+
+                    <p>QR Code:</p>
+                    <div class="qr-code">
+                        <img id="popup-qr" src="IMG/WhatsApp Image 2024-06-23 at 07.58.48_bf474999.jpg" alt="QR Code" width="200" />
+                    </div>
+
+                    <h:commandButton type="submit" value="Konfirmasi" id="konfirmasi" action="#{payBean.processPayment}" />
+                </div>
+            </div>
+        </h:form>
+
+
+        <ui:include src="footer.xhtml" />
+
+    </h:body>
+    <script>
+        function updatePurchaseDetails(itemName, itemPrice) {
+            document.getElementById('popup-item').innerText = itemName;
+            document.getElementById('hidden-item').value = itemName;
+            document.getElementById('popup-amount').innerText = itemPrice;
+            document.getElementById('hidden-price').value = itemPrice;
+        }
+        function openPopup() {
+            document.getElementById("popup-modal").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popup-modal").style.display = "none";
+        }
+        document.getElementById('hidden-page').value = 'Mobile Legends';
+        document.getElementById("hidden-method-payment").value = paymentMethod;
+        document.getElementById('quantity').addEventListener('input', function () {
+            document.getElementById('hidden-quantity').value = this.value;
+        });
+    </script>
+</html>

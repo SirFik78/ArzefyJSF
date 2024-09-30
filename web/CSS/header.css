@@ -1,0 +1,200 @@
+header {
+overflow: hidden;
+background-color: #111f44;
+z-index: 1000;
+position: fixed;
+width: 100%;
+margin-bottom: auto;
+top: 0;
+}
+/* Style the header links */
+header a {
+float: left;
+color: white;
+text-align: center;
+padding: 12px;
+text-decoration: none;
+font-size: 18px;
+line-height: 25px;
+border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+header a.logo {
+font-size: 30px;
+font-weight: bold;
+margin-left: 240px;
+cursor: default;
+
+}
+
+/* Change the background color on mouse-over */
+
+
+/* Style the active/current link*/
+header a.active {
+color: white;
+}
+
+/* Float the link section to the right */
+.header-right {
+float: right;
+margin-top: 19px;
+margin-right: 80px;
+}
+
+#home:hover,#signIn:hover, #signOut:hover, #orderHistory:hover, #Profil:hover{
+color: whitesmoke;
+border-bottom: 2px white solid;
+border-radius: 0;
+transition:  0.5s;
+}
+
+header input{
+width: 30%;
+height: 45px;
+top: 0;
+margin-left: 4%;
+margin-top: 20px;
+border-radius: 10px;
+color: black;
+}
+
+#searchResults {
+  position: fixed;
+  top: 80px;
+  left: 420px;
+  width: 30%;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  display: none;
+  padding: 10px;
+
+}
+
+.search-result {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  color: black;
+}
+
+.search-result img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.search-result p {
+  margin: 0;
+  font-size: 16px;
+}
+
+
+input:focus + #searchResults {
+  display: block;
+}
+
+
+
+@media screen and (max-width: 500px) {
+  header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}
+
+/*-------------------------------*/
+
+
+.kartu {
+    background-color: #1c2533;
+    color: white;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 180px;
+    border-radius: 15px;
+    height: 200px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 4000;
+}
+
+.kartu button{
+    background-color: transparent;
+    border: 2px solid;
+    border-radius: 15px;
+    color: #207cb4;
+    width: 120px;
+    height: 40px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 40px;
+}
+.kartu h2{
+    
+}
+.kartu button:hover{
+    background-color: #207cb4;
+    color: #fff;
+}
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.signoutbtn, .batalbtn{
+    background-color: transparent;
+    border: 2px solid;
+    border-radius: 15px;
+    color: #207cb4;
+    width: 120px;
+    height: 40px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+.signoutbtn:hover, .batalbtn:hover{
+    background-color: #207cb4;
+    color: #fff;
+}
+
+.batalbtn{
+   margin-left: 20px;
+}

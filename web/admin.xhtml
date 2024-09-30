@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <head>
+        <title>Admin Dashboard</title>
+        <link rel="stylesheet" type="text/css" href="resources/css/admin.css"/>
+        <script src="JavaScript/admin.js"></script> <!-- Importing JS file -->
+    </head>
+
+    <h:body>
+        <header>
+            <h1>Admin Dashboard</h1>
+        </header>
+
+        <div class="navbar">
+            <h:form>
+                <h:commandLink styleClass="navv" value="Sign Out" action="#{adminBean.signOut}" />
+                <h:outputLink styleClass="navv" value="#" onclick="showSection('riwayatPembelian')">Riwayat Pembelian</h:outputLink>
+                <h:outputLink styleClass="navv" value="#" onclick="showSection('manageItems')">Item</h:outputLink>
+            </h:form>
+        </div>
+
+        <div class="container">
+            <!-- Sign out popup -->
+            <h:panelGroup id="signOutPopup" styleClass="popup" layout="block" style="display:none;">
+                <div class="kartu">
+                    <center>
+                        <h:outputLink value="#" onclick="losePopup()">
+                            <span class="close"></span>
+                        </h:outputLink>
+                        <h2 id="sure">Apakah Kamu Yakin Ingin Sign Out?</h2>
+                        <h:form>
+                            <h:commandButton styleClass="signoutbtn" value="Sign Out" action="#{adminBean.signOut}" />
+                            <h:commandButton styleClass="batalbtn" value="Batal" onclick="losePopup(); return false;" />
+                        </h:form>
+                    </center>
+                </div>
+            </h:panelGroup>
+
+            <!-- Add Item Section -->
+<div class="update-item-container" id="updateItemContainer" style="display: none;">
+    <h2>Update Item</h2>
+    <h:form  id="updateForm">
+        <h:outputLabel for="itemId" value="Item ID:" />
+        <h:inputText id="itemId" value="#{adminBean.item.idItem}" a:placeholder="Enter item ID" readonly="true" />
+
+        <h:outputLabel for="updateItemName" value="Item Name:" />
+        <h:inputText id="updateItemName" value="#{adminBean.item.namaItem}" a:placeholder="Enter new item name" />
+
+        <h:outputLabel for="updateItemPrice" value="Item Price:" />
+        <h:inputText id="updateItemPrice" value="#{adminBean.item.price}" a:placeholder="Enter new item price" />
+
+        <h:commandButton value="Update Item" action="#{adminBean.updateItem}" />
+        <h:commandButton value="Cancel" onclick="hideUpdateItem(); return false;" />
+    </h:form>
+</div>
+
+
+            <!-- Manage Items Table -->
+<div class="table-container" id="manageItems">
+    <h2>Manage Items</h2>
+
+    <h:panelGroup id="itemListId">
+        <h:dataTable value="#{adminBean.itemList}" var="item">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                #{item.idItem}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                #{item.namaItem}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Price</f:facet>
+                #{item.price}
+            </h:column>
+        </h:dataTable>
+    </h:panelGroup>>
+</div>
+
+
+
+            <!-- Update Item Section -->
+
+            <!-- Purchase History Section -->
+            <div class="riwayat-container" id="riwayatPembelian" style="display:none;">
+                <h:form>
+                    <h2>Purchase History</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Email</th>
+                                <th>Game Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ui:repeat value="#{riwayatBean.orderHistoryList}" var="riwayat">
+                                <tr>
+                                    <td>#{riwayat.idHistory}</td>
+                                    <td>#{riwayat.email}</td>
+                                    <td>#{riwayat.namaGame}</td>
+                                    <td>#{riwayat.quantity}</td>
+                                    <td>#{riwayat.price}</td>
+                                </tr>
+                            </ui:repeat>
+                        </tbody>
+                    </table> 
+                </h:form>
+            </div>
+
+
+
+        </div>
+    </h:body>
+    <script>
+        function showUpdateItemPopup(id, name, price) {
+    // Set the values in the form fields
+    document.getElementById('updateForm:itemId').value = id;
+    document.getElementById('updateForm:updateItemName').value = name;
+    document.getElementById('updateForm:updateItemPrice').value = price;
+
+    // Show the popup
+    document.getElementById('updateItemContainer').style.display = 'block';
+    
+}
+function hideUpdateItem() {
+    document.getElementById('updateItemContainer').style.display = 'none';
+}
+
+    </script>
+</html>

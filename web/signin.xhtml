@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:include src="header.xhtml"/>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <h:outputStylesheet name="css/signin.css" /> 
+        <script src="JavaScript/signin.js"></script>
+        <title>JSF Page</title>
+    </head>
+    <h:body>
+        <main>
+            <div class="signup">
+                <span>Belum Daftar?</span>
+                <button id="login" type="button">Sign up</button>
+            </div>
+
+            <div class="login">
+                <span>Sudah Punya Akun?</span>
+                <button id="login" type="button">Login</button>
+            </div>
+
+            <div class="back-layer">
+                <!-- Login Form -->
+                <h:form id="loginForm" class="login-form active">
+                    <h2>Sign In</h2>
+                    <h:outputLabel for="lemail" value="Email" />
+                    <h:inputText id="lemail" value="#{loginbean.email}" a:placeholder="Masukkan Email" />
+                    <h:message for="lemail" styleClass="error" />
+
+                    <h:outputLabel for="lpassword" value="Password" />
+                    <h:inputSecret id="lpassword" value="#{loginbean.password}" a:placeholder="*****" />
+                    <h:message for="lpassword" styleClass="error" />
+
+
+                    <h:commandLink styleClass="forget" id="forget" value="Forgot Password?" action="forget.xhtml" />
+                    <h:outputText value="#{loginbean.errorMessage}" style="color: red;" rendered="#{not empty loginbean.errorMessage}" />
+                    <h:outputText value="#{registerBean.errorMessage}" style="color: red;" rendered="#{not empty registerBean.errorMessage}" />
+                    <h:commandButton id="login" value="Login" action="#{loginbean.login}" styleClass="login-button"/>
+                </h:form>
+
+                <!-- Signup Form -->
+                <h:form id="signupForm" class="signup-form">
+                    <h2>Sign Up</h2>
+
+                    <h:outputLabel for="name" value="Username" />
+                    <h:inputText id="name" value="#{registerBean.username}" a:placeholder="Masukkan Username" />
+                    <h:message for="name" styleClass="error" />
+
+                    <h:outputLabel for="hp" value="NO HP" />
+                    <h:inputText id="hp" value="#{registerBean.no_hp}" a:placeholder="Masukkan No HP" />
+                    <h:message for="hp" styleClass="error" />
+
+                    <h:outputLabel for="semail" value="Email" />
+                    <h:inputText id="semail" value="#{registerBean.email}" a:placeholder="Masukkan Email" />
+                    <h:message for="semail" styleClass="error" />
+
+                    <h:outputLabel for="spassword" value="Password" />
+                    <h:inputSecret id="spassword" value="#{registerBean.password}" a:placeholder="*****" />
+                    <h:message for="spassword" styleClass="error" />
+
+                    <h:commandButton id="sign" value="Sign up" action="#{registerBean.register}" onclick="validateSignup()" styleClass="login-button"/>
+                    <h:outputText value="#{registerBean.errorMessage}" style="color: red;" rendered="#{not empty registerBean.errorMessage}" />
+                </h:form>
+            </div>
+        </main>
+    </h:body>
+</html>

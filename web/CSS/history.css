@@ -1,0 +1,88 @@
+body {
+    background-color: #232946;
+    background-image: url(../IMG/Sprinkle\ 02.svg);
+    background-size: cover;
+    width: 100%;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+
+.back {
+    background-color: #1c2533;
+    width: 80%;
+    max-width: 1200px;
+    margin: 150px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    color: #fff; /* Changed to white */
+    font-size: 2.5em; /* Increased size */
+}
+
+form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cari {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+form input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ff6f61;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #ff4c3b;
+}
+
+table {
+    width: 80%; /* Adjust the width */
+    border-collapse: collapse;
+    margin: auto;
+}
+
+
+table, th, td {
+    border: 1px solid #ff6f61;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #3e497a; /* Changed to a color that matches the concept */
+    color: #fff;
+}
+
+td {
+    background-color: #2a3a5e;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #243b55;
+}
+
+tbody tr:hover {
+    background-color: #ff4c3b;
+    color: #fff;
+}

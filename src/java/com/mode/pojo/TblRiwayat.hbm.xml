@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 24, 2024 12:45:37 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mode.pojo.TblRiwayat" table="tbl_riwayat" catalog="arzefy" optimistic-lock="version">
+        <id name="idHistory" type="java.lang.Integer">
+            <column name="id_history" />
+            <generator class="identity" />
+        </id>
+        <property name="time" type="date">
+            <column name="Time" length="10" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="55" />
+        </property>
+        <property name="uid" type="string">
+            <column name="UID" length="55" not-null="true" />
+        </property>
+        <property name="namaGame" type="string">
+            <column name="nama_game" length="55" not-null="true" />
+        </property>
+        <property name="server" type="string">
+            <column name="Server" length="55" />
+        </property>
+        <property name="namaItem" type="string">
+            <column name="nama_item" length="55" not-null="true" />
+        </property>
+        <property name="methodPayment" type="string">
+            <column name="method_payment" length="55" not-null="true" />
+        </property>
+        <property name="quantity" type="int">
+            <column name="Quantity" not-null="true" />
+        </property>
+        <property name="price" type="int">
+            <column name="price" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

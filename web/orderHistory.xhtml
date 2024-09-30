@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <link rel="stylesheet" href="CSS/history.css" />
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <body>
+        <ui:include src="header.xhtml" />
+        <div class="back">
+            <h1>Riwayat Pemesanan</h1>
+
+            <h:form>
+
+                <!-- Remove manual email input -->
+
+                <h:inputText styleClass="cari" id="query" value="#{riwayatBean.query}" a:placeholder="Masukkan nama game"/>
+
+                <h:commandButton value="Cari" action="#{riwayatBean.searchHistory}" />
+
+            </h:form>
+
+            <h:dataTable value="#{riwayatBean.orderHistoryList}" var="riwayat">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                        #{riwayat.idHistory}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Waktu</f:facet>
+                        #{riwayat.time}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">UID</f:facet>
+                        #{riwayat.uid}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Server</f:facet>
+                        #{riwayat.server}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Nama Game</f:facet>
+                        #{riwayat.namaGame}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Nama Item</f:facet>
+                        #{riwayat.namaItem}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Metode Pembayaran</f:facet>
+                        #{riwayat.methodPayment}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Jumlah</f:facet>
+                        #{riwayat.quantity}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Harga</f:facet>
+                        #{riwayat.price}
+                </h:column>
+            </h:dataTable>
+        </div>
+    </body>
+</html>

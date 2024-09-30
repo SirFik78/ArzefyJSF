@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <head>
+        <h:outputLink value="#{resource['images/icon.png']}" type="image/png" rel="icon"/>
+        <h:outputStylesheet name="css/index.css" />     
+       <link rel="icon" href="#{request.contextPath}/resources/images/icon.png" type="image/png"/>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    </head>
+    <h:body>
+        <script>
+                    function closeSuccessModal() {
+            document.getElementById('success-modal').style.display = 'none';
+        }
+
+        // Function to check if payment was successful
+        function checkPaymentStatus() {
+            var paymentSuccess = #{not empty sessionScope.paymentSuccess};
+            if (paymentSuccess) {
+                document.getElementById('success-modal').style.display = 'block';
+                // Clear the session attribute after displaying the modal
+                #{sessionScope.paymentSuccess = null}; 
+            }
+        }
+
+        // Check payment status on page load
+        window.onload = checkPaymentStatus;
+        </script>
+        <ui:include src="Succes.xhtml"/>
+        <ui:include src="header.xhtml" />
+
+
+        <div class="slideshow-container">
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 4</div>
+                <a href="ItemServlet1?gameId=6">
+                    <img src="IMG/1.png" style="width: 100%;" alt="Slide 1" />
+                </a>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 4</div>
+                <a href="ItemServlet1?gameId=5">
+                    <img src="IMG/2.png" style="width: 100%;" alt="Slide 2" />
+                </a>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 4</div>
+                <a href="ItemServlet1?gameId=4">
+                    <img src="IMG/3.png" style="width: 100%;" alt="Slide 3" />
+                </a>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">4 / 4</div>
+                <a href="ItemServlet1?gameId=7">
+                    <img src="IMG/4.png" style="width: 100%;" alt="Slide 4" />
+                </a>
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br />
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+
+
+<h:form>
+        <section>
+            <div class="Container">
+                <h2>🔥 Sedang Populer</h2>
+                <div id="myUL" class="grid-Container">
+                    <ul>
+                        <li class="grid">
+                            <h:commandLink action="#{itemBean.setGameId(7)}" value="">
+                                <div class="Card">
+                                    <div class="Animation">
+                                        <img src="IMG/valorant.webp" alt="Valorant" />
+                                        <h2>Valorant</h2>
+                                    </div>
+                                </div>
+                            </h:commandLink>
+                        </li>
+                        <li class="grid">
+                            
+                                <h:commandLink action="#{itemBean.setGameId(2)}" value="">
+                                <div class="Card">
+                                    <div class="Animation">
+                                        <img src="IMG/genshin-impact.webp" alt="Genshin Impact" />
+                                        <h2>Genshin Impact</h2>
+                                    </div>
+                                </div>
+                                </h:commandLink>
+                        </li>
+                        <li class="grid">
+                            <h:commandLink action="#{itemBean.setGameId(5)}" value="">
+                                <div class="Card">
+                                    <div class="Animation">
+                                        <img src="IMG/mobile-legends.webp" alt="Mobile Legends" />
+                                        <h2>Mobile Legends</h2>
+                                    </div>
+                                </div>
+                            </h:commandLink>
+                        </li>
+                        <li class="grid">
+                            <h:commandLink action="#{itemBean.setGameId(1)}" value="">
+                                <div class="Card">
+                                    <div class="Animation">
+                                        <img src="IMG/free-fire.webp" alt="Free-Fire" />
+                                        <h2>Free Fire</h2>
+                                    </div>
+                                </div>
+                            </h:commandLink>
+                        </li>
+                        <li class="grid">
+                           
+                                <h:commandLink action="#{itemBean.setGameId(3)}" value="">
+                                    <div class="Card">
+                                        <div class="Animation">
+                                            <img src="IMG/honkai-star-rail.webp" alt="Honkai Star Rail" />
+                                            <h2>Honkai Star Rail</h2>
+                                        </div>
+                                    </div>
+                                </h:commandLink>
+                            
+                        </li>
+                        <li class="grid">
+                            <h:commandLink action="#{itemBean.setGameId(4)}" value="">
+                                <div class="Card">
+                                    <div class="Animation">
+                                        <img src="IMG/honor-of-kings.webp" alt="Honor of Kings" />
+                                        <h2>Honor of Kings</h2>
+                                    </div>
+                                </div>
+                            </h:commandLink>
+                        </li>
+                        <li class="grid">
+                            <h:commandLink action="#{itemBean.setGameId(6)}" value="">
+                                <div class="Card">
+                                    <div class="Animation">
+                                        <img src="IMG/pubg-mobile.webp" alt="PUBG Mobile" />
+                                        <h2>PUBG Mobile</h2>
+                                    </div>
+                                </div>
+                            </h:commandLink>
+                        </li>
+                        <li class="grid">
+                            <h:commandLink action="#{itemBean.setGameId(8)}" value="">
+                                <div class="Card">
+                                    <div class="Animation">
+                                        <img src="IMG/wuthering-waves.webp" alt="Wuthering Waves" />
+                                        <h2>Wuthering Waves</h2>
+                                    </div>
+                                </div>
+                            </h:commandLink>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+</h:form>
+        <script src="JavaScript/game.js"></script>
+        <script type="text/javascript" src="JavaScript/index.js"></script>
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        
+    </h:body> 
+    <ui:include src="footer.xhtml"/>
+</html>

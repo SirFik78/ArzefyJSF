@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Arzefy Gaming Store</title>
+    <link rel="icon" href="#{request.contextPath}/resources/images/icon.png" type="image/png"/>
+    <h:outputStylesheet name="css/notif.css" />   
+</h:head>
+<h:body>
+    <div id="success-modal" Styleclass="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSuccessModal()"></span>
+            <h2><h:outputText value="Pembayaran Berhasil" /></h2>
+            <p><h:outputText value="Terima kasih atas pembelian Anda!" /></p>
+            <h:commandButton value="Tutup" class="close" onclick="closeSuccessModal()" />
+        </div>
+    </div>
+    <script src="JavaScript/game.js"></script>
+</h:body>
+</html>

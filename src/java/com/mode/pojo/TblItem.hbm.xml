@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 24, 2024 12:45:37 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mode.pojo.TblItem" table="tbl_item" catalog="arzefy" optimistic-lock="version">
+        <id name="idItem" type="java.lang.Integer">
+            <column name="id_item" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tblGame" class="com.mode.pojo.TblGame" fetch="select">
+            <column name="id_game" />
+        </many-to-one>
+        <property name="itemType" type="string">
+            <column name="item_type" not-null="true" />
+        </property>
+        <property name="image" type="string">
+            <column name="image" not-null="true" />
+        </property>
+        <property name="namaItem" type="string">
+            <column name="nama_item" length="60" not-null="true" />
+        </property>
+        <property name="price" type="int">
+            <column name="price" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,46 @@
+footer{
+  color: white;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(67, 216, 236, 0.8) -6px -2px 16px 0px;
+  border-top: #207cb4 solid 3px;
+  width: auto 0;
+  background-color: #1c2534;
+  height: auto 0;
+}
+
+.desk{
+  margin-top: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+footer p{
+  text-align: justify;
+  
+}
+footer li{
+  margin-top: -10px;
+}
+
+.sos{
+  margin-left: 100px;
+  margin-right: 100px;
+  display: flex;
+}
+
+.ogo{
+  border-right: 2px whitesmoke solid;
+}
+
+.sosmed{
+  margin-left: 50px;
+  flex: 0 0 auto;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: space-around;
+  color: white;
+}
+
+.sosmed i{
+  color: white;
+}

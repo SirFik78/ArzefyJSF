@@ -1,0 +1,430 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.modal p{
+  color: white;
+}
+
+h2,h3, h4{
+  color: white;
+  font-weight: bold;
+}
+
+label{
+  color: white;
+}
+
+body {
+    background-color: #232946;
+    background-image: url(../IMG/Sprinkle\ 02.svg);
+    width: 100%;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Change the background color on mouse-over */
+
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1500px;
+    margin-top: 150px;
+    margin-left: 50px;
+}
+
+.card {
+    background-color: #1c2533;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    display:  block;
+    margin-right: 20px;
+    text-align: center; 
+    height: 420px;
+    width: 580px;
+
+}
+
+.image-container {
+    padding: 20px;
+}
+
+.image-container img {
+    width: 30%;
+    height: auto;
+    display: block;
+    border-radius: 20px     ;
+}
+
+.content {
+    padding: 15px;
+    text-align: justify;
+}
+
+.content h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.content p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    color: #fff;
+}
+
+.right-content {
+    flex: 1;
+}
+
+.step {
+    background-color: #1c2533;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.step-header span {
+    display: inline-block;
+    
+    background-color: #f39c12;
+    color: #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.step-body h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.step-body input {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: black;
+}
+
+.step-body select, .step-body option{
+  width: 98%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  color: black;
+}
+
+.category {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.category p{
+    margin-top: -10px;
+    color: white;
+}
+
+.category-item {
+    background-color: #1c2533;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    flex: 1;
+    margin-right: 100px;
+    cursor: pointer;
+    margin-left: 80px;
+}
+
+.category-item[data-category="starlight"] {
+    margin-right: 100px;
+    margin-left: 40px
+}
+
+
+
+.category-item:hover {
+    background-color: #74aed0;
+    Scale: 1.2;
+    transition: all 0.5s;
+}
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.item, .battle {
+    background-color: #1c2533;
+    padding: 19px 0px 0px; 
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    height: auto;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.item img, .battle img{
+  float: inline-start;
+  width: 40px;
+  height: auto;
+}
+
+.item-info {
+    text-align: left;
+    color: #ddd;
+}
+
+
+
+.item-price-box {
+    background-color: #2e3a4e;
+    padding: 4px;
+    border-bottom-left-radius: 10px ;
+    border-bottom-right-radius:10px ;
+    flex: 1;
+    cursor: pointer;
+    text-align: left;
+    
+}
+.item-price-box:hover{
+    background-color: #74aed0;
+}
+
+.item-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.price {
+    color: white;
+    font-size: 15px;
+    margin-bottom: px;
+}
+
+#price-display {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.input-box {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.input-box label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.input-box input {
+    width: 95%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+.payment-methods {
+    background-color: #1c2533;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.payment-methods h2{
+  font-size: 20px;
+}
+
+.payment-grid{
+  border-color: #3498db;
+}
+
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 15px;
+  
+}
+
+.methode{
+  background-color: #394a59;
+  padding: 26px 0px 16px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  text-align: left;
+  height: auto;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.methode img{
+  width: 70px;
+  height: 20px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  float: left;
+}
+
+
+ .methode p{
+  text-align: right;
+  margin-bottom: 10px;
+  margin-top: 0;
+  margin-right: 10px;
+  color: white;
+
+}
+
+.nama{
+  text-align: center;
+  margin: 0;
+  margin-bottom: 10px;
+  margin-top: 0;
+  margin-right: 10px;
+}
+
+#buy-now {
+  background-color: #0000ff;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 100px;
+  width: 100%;
+  height: 50px;
+  font-weight: bold;
+}
+
+#buy-now:hover {
+    background-color: #273b4c;
+}
+
+#popup-modal {
+    color: #1c2533;
+    display: none; /* Modal tidak ditampilkan secara default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang hitam transparan */
+}
+
+
+
+
+.modal-content {
+    color: #000;
+    background-color: #2a2929;
+    margin: 5% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: auto;
+}
+
+.Konfirmasi{
+  color: white;
+  background-color: #1c2533;
+  text-align: center;
+}
+
+.close {
+    color: #000000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.payment-method {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.qr-code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Add this to the existing CSS */
+#success-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+
+/* Hover and Select Styles */
+.item:hover, .methode:hover, .battle:hover {
+    border: 3px solid #525268;
+    cursor: pointer;
+}
+
+.item.selected, .methode.selected, .battle.selected {
+    border: 3px solid #525268;
+}
+
+/*Button*/
+#konfirmasi, #close{
+  background-color: #0000ff;
+  color: white;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 30px;
+}
+
+.modal#konfirmasi:hover, #close:hover{
+  background-color: #000099;
+}
+

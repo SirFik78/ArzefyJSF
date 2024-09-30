@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 24, 2024 12:45:37 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.mode.pojo.TblAkun" table="tbl_akun" catalog="arzefy" optimistic-lock="version">
+        <id name="idAkun" type="java.lang.Integer">
+            <column name="id_akun" />
+            <generator class="identity" />
+        </id>
+        <property name="username" type="string">
+            <column name="username" length="55" not-null="true" />
+        </property>
+        <property name="noHp" type="string">
+            <column name="no_hp" length="55" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="55" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="55" not-null="true" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="status" />
+        </property>
+    </class>
+</hibernate-mapping>

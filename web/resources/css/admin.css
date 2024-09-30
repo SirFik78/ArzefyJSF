@@ -1,0 +1,139 @@
+/* admin.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #007bff;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.navbar {
+    display: flex; /* Menggunakan flexbox untuk tata letak */
+    justify-content: center; /* Memisahkan elemen ke kiri dan kanan */
+    width: 100%;
+    align-items: baseline; /* Vertikal center */
+    background: #0056b3;
+    padding: 10px; /* Memberi ruang dalam navbar */
+    margin-right: 10px;
+    padding-left: 10px;
+    
+}
+    .navbar .navv:hover {
+        color: #ddd;
+    }
+    .navbar .navv {
+        color: white;
+        margin-right: 80px;
+        text-decoration: none;
+        text-align: center;
+    }
+
+.navbar .nav-link {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin-left: 15px; /* Jarak antar link */
+}
+
+.navbar .nav-link:hover {
+    background: #003d7a;
+}
+
+.table-container {
+    margin: 20px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background: #007bff;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+button {
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background: #218838;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+/* Styling untuk Sign Out */
+.sign-out {
+    margin-right: auto; /* Memindahkan Sign Out ke kiri */
+}
+
+.update-item-container {
+    display: none; /* Hidden by default */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Make sure the popup is on top */
+    border-radius: 8px;
+}
+
+.update-item-container h2 {
+    margin-top: 0;
+}
+
+#updateItemContainerOverlay {
+   
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999; /* Background overlay, lower than the popup */
+}
